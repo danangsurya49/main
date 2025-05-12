@@ -37,15 +37,11 @@ class _CartScreenState extends State<CartScreen> {
     int totalHarga = 50000 * _jumlah;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Keranjang Belanja'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Keranjang Belanja'), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Barang dalam keranjang
             Card(
               elevation: 2,
               child: ListTile(
@@ -75,22 +71,23 @@ class _CartScreenState extends State<CartScreen> {
 
             const Spacer(),
 
-            // Tombol Checkout
             ElevatedButton.icon(
               onPressed: () {
                 showDialog(
                   context: context,
-                  builder: (context) => AlertDialog(
-                    title: const Text('Checkout Berhasil'),
-                    content: Text(
-                        'Anda membeli $_jumlah barang dengan total Rp$totalHarga.\nTerima kasih telah berbelanja!'),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: const Text('OK'),
+                  builder:
+                      (context) => AlertDialog(
+                        title: const Text('Checkout Berhasil'),
+                        content: Text(
+                          'Anda membeli $_jumlah barang dengan total Rp$totalHarga.\nTerima kasih telah berbelanja!',
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('OK'),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
                 );
               },
               icon: const Icon(Icons.payment),
@@ -102,7 +99,6 @@ class _CartScreenState extends State<CartScreen> {
 
             const SizedBox(height: 12),
 
-            // Tombol Kembali
             OutlinedButton(
               onPressed: () => Navigator.pop(context),
               child: const Text('Kembali'),
